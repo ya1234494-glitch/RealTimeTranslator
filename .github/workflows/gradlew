@@ -1,0 +1,12 @@
+#!/bin/sh
+# Gradle wrapper - will use gradle from PATH (available on GitHub Actions CI)
+# For local builds, install Gradle manually or use Android Studio.
+
+if command -v gradle > /dev/null 2>&1; then
+    exec gradle "$@"
+else
+    echo "Gradle not found. Please install Gradle or use Android Studio to build."
+    echo "Install via: sdk install gradle 8.5  (using SDKMAN)"
+    echo "Or download from: https://gradle.org/install/"
+    exit 1
+fi
